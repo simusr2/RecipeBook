@@ -20,7 +20,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Restore npm packages
-      working-directory: RecipeBook/RecipeBook/
+      working-directory: /home/runner/work/RecipeBook/RecipeBook/RecipeBook/
       run: npm ci
         
     - name: Build

@@ -9,10 +9,18 @@
     <link rel="stylesheet" type="text/css" href="~/lib/tabulator/dist/css/bootstrap/tabulator_bootstrap4.min.css">
 }
 
-<div class="text-center">
+<div>
     <h1 class="display-4">Recipe book</h1>
-
-    <div id="recipe-table"></div>
+    <div class="container-fluid">
+        <div class="row mb-2 float-end">
+            <div class="">
+                <button type="button" class="btn btn-primary" onclick="openNewRecipe()">Nuova</button>
+            </div>
+        </div>
+        <div class="">
+            <div id="recipe-table"></div>
+        </div>
+    </div>
 </div>
 
 @section Scripts{

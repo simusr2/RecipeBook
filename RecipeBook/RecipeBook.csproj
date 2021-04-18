@@ -22,6 +22,6 @@
     <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.0" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties NpmRestoreOnProjectOpen="True" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties NpmRestoreOnProjectOpen="True" tsconfig_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>

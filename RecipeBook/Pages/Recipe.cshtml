@@ -2,9 +2,11 @@
 @model RecipeBook.Pages.RecipeModel
 @using RecipeBook.Data.Model
 @section Styles{
-<style>
-    .container-fluid{margin-top: 10px;}
-</style>
+    <style>
+        .container-fluid {
+            margin-top: 10px;
+        }
+    </style>
 }
 @{
     ViewData["Title"] = "Recipe";
@@ -12,27 +14,111 @@
     string id, labelId, labelSuffix = "Label";
 }
 
+@if (r.RecipeId != 0)
+{
+    <h3>@r.RecipeName</h3>
+}
+
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-sm-6">
-            <div class="form-outline ">
-                @{
-                    id = nameof(r.RecipeName);
-                    labelId = id + labelSuffix;
-                }
-                <input type="text" id="@id" class="form-control" value="@r.RecipeName" />
-                <label class="form-label" for="@id" id="@labelId">Nome</label>
+    <form id="recipeForm">
+        <div class="row">
+
+
+            @{
+                id = nameof(r.RecipeId);
+                labelId = id + labelSuffix;
+            }
+            <input type="hidden" id="@id" name="@id" value="@r.RecipeId" />
+
+            <div class="col-12">
+
+
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.RecipeName);
+                        labelId = id + labelSuffix;
+                    }
+                    <input type="text" id="@id" name="@id" class="form-control" value="@r.RecipeName" />
+                    <label class="form-label" for="@id" id="@labelId">Nome</label>
+                </div>
+
             </div>
         </div>
-        <div class="col-12 col-sm-6">
-            <div class="form-outline">
-                @{
-                    id = nameof(r.RecipeDescription);
-                    labelId = id + labelSuffix;
-                }
-                <textarea type="text" id="@id" class="form-control" rows="4">@r.RecipeDescription</textarea>
-                <label class="form-label" for="@id" id="@labelId">Descrizione</label>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.RecipeDescription);
+                        labelId = id + labelSuffix;
+                    }
+                    <textarea type="text" id="@id" name="@id" class="form-control" rows="4">@r.RecipeDescription</textarea>
+                    <label class="form-label" for="@id" id="@labelId">Descrizione</label>
+                </div>
             </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.RecipeTime);
+                        labelId = id + labelSuffix;
+                    }
+                    <input type="number" id="@id" name="@id" class="form-control" value="@r.RecipeTime" />
+                    <label class="form-label" for="@id" id="@labelId">Tempo di preparazione</label>
+                    <div class="form-helper">Minuti</div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.RecipeCookingTime);
+                        labelId = id + labelSuffix;
+                    }
+                    <input type="number" id="@id" name="@id" class="form-control" value="@r.RecipeCookingTime" />
+                    <label class="form-label" for="@id" id="@labelId">Tempo di cottura</label>
+                    <div class="form-helper">Minuti</div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.Portions);
+                        labelId = id + labelSuffix;
+                    }
+                    <input type="number" id="@id" name="@id" class="form-control" value="@r.Portions" />
+                    <label class="form-label" for="@id" id="@labelId">Porzioni</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-outline mb-4">
+                    @{
+                        id = nameof(r.RecipeProcedure);
+                        labelId = id + labelSuffix;
+                    }
+                    <textarea type="text" id="@id" name="@id" class="form-control" rows="10">@r.RecipeProcedure</textarea>
+                    <label class="form-label" for="@id" id="@labelId">Preparazione</label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="col-12">
+        <div class="float-end">
+            <button class="btn btn-primary" onclick="saveRecipe()">Salva</button>
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        _recipePostUrl = "@Url.Action("Get","Recipes")";
+        _recipeId = @r.RecipeId;
+    </script>
+    <script type="text/javascript" src="~/js/Recipe.js"></script>
+}

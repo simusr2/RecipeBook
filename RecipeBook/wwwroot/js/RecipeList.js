@@ -24,4 +24,6 @@ function createRecipeTable(selector, getUrl) {
     };
     return new Tabulator(selector, options);
 }
-//# sourceMappingURL=RecipeList.js.map
+function openNewRecipe() {
+    window.location.href = _recipeUrl;
+}

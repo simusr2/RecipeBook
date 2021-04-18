@@ -20,6 +20,7 @@ function createRecipeTable(selector: string, getUrl: string) {
 
     const options: Tabulator.Options = {
         columns,
+        virtualDomHoz: false,
         layout: "fitColumns",
         ajaxURL: getUrl,
         index: "recipeId",
@@ -30,4 +31,6 @@ function createRecipeTable(selector: string, getUrl: string) {
     return new Tabulator(selector, options);
 }
 
-
+function openNewRecipe() {
+    window.location.href = _recipeUrl;
+}

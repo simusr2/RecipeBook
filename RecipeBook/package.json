@@ -1,0 +1,28 @@
+{
+  "name": "recipebook",
+  "version": "1.0.0",
+  "description": "Recipe book project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simusr2/RecipeBook.git"
+  },
+  "keywords": [
+    "recipe",
+    "book"
+  ],
+  "author": "simusr2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simusr2/RecipeBook/issues"
+  },
+  "homepage": "https://github.com/simusr2/RecipeBook#readme",
+  "devDependencies": {
+    "@types/jquery": "3.5.1",
+    "@types/bootstrap": "5.0.12",
+    "@types/tabulator-tables": "4.9.1"
+  }
+}

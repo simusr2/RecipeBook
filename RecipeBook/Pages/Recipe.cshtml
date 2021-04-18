@@ -1,0 +1,38 @@
+﻿@page
+@model RecipeBook.Pages.RecipeModel
+@using RecipeBook.Data.Model
+@section Styles{
+<style>
+    .container-fluid{margin-top: 10px;}
+</style>
+}
+@{
+    ViewData["Title"] = "Recipe";
+    Recipe r = Model.Recipe;
+    string id, labelId, labelSuffix = "Label";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <div class="form-outline ">
+                @{
+                    id = nameof(r.RecipeName);
+                    labelId = id + labelSuffix;
+                }
+                <input type="text" id="@id" class="form-control" value="@r.RecipeName" />
+                <label class="form-label" for="@id" id="@labelId">Nome</label>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-outline">
+                @{
+                    id = nameof(r.RecipeDescription);
+                    labelId = id + labelSuffix;
+                }
+                <textarea type="text" id="@id" class="form-control" rows="4">@r.RecipeDescription</textarea>
+                <label class="form-label" for="@id" id="@labelId">Descrizione</label>
+            </div>
+        </div>
+    </div>
+</div>

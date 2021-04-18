@@ -4,7 +4,22 @@
     ViewData["Title"] = "Home page";
 }
 
+@section Styles{
+    <link rel="stylesheet" type="text/css" href="~/lib/tabulator/dist/css/tabulator.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/tabulator/dist/css/bootstrap/tabulator_bootstrap4.min.css">
+}
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Recipe book</h1>
+
+    <div id="recipe-table"></div>
 </div>
+
+@section Scripts{
+    <script>
+        _recipeUrl = "@Url.Page("Recipe")";
+        _recipeTableGetUrl = "@Url.Action("Get", "Recipes")";
+    </script>
+    <script type="text/javascript" src="~/lib/tabulator/dist/js/tabulator.min.js"></script>
+    <script type="text/javascript" src="~/js/RecipeList.js"></script>
+}
